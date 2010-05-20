@@ -934,8 +934,10 @@ def os_release():
       raise CX("failed to detect local OS version from /etc/redhat-release")
 
    elif check_dist() == "debian":
-      fd = open("/etc/debian_version")
-      parts = fd.read().split(".")
+      # changing from file-based versioning to LSB-Based version detection
+      from lsb_release import *
+      fd = get_distro_information()['RELEASE']
+      parts = fd.split(".")
       version = parts[0]
       rest = parts[1]
       make = "debian"
