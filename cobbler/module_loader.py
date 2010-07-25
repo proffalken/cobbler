@@ -37,7 +37,9 @@ MODULES_BY_CATEGORY = {}
 cp = ConfigParser.ConfigParser()
 cp.read("/etc/cobbler/modules.conf")
 
-plib = distutils.sysconfig.get_python_lib()
+# A hideous hack to make this work under Ubuntu
+# plib = distutils.sysconfig.get_python_lib() - the OLD Original Script
+plib = '/usr/local/lib/python2.6/dist-packages'
 mod_path="%s/cobbler/modules" % plib
 sys.path.insert(0, mod_path)
 sys.path.insert(1, "%s/cobbler" % plib)
