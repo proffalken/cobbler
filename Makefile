@@ -42,7 +42,7 @@ build: manpage
 
 install: build manpage
 	python setup.py install -f
-	chown -R apache /usr/share/cobbler/web
+	chown -R www-data /usr/share/cobbler/web
 
 debinstall: manpage
 	python setup.py install -f --root $(DESTDIR)
@@ -77,7 +77,7 @@ restorestate:
 	cp $(statepath)/dhcp.template /etc/cobbler/dhcp.template
 	cp $(statepath)/rsync.template /etc/cobbler/rsync.template
 	find /var/lib/cobbler/triggers | xargs chmod +x
-	chown -R apache /var/www/cobbler
+	chown -R www-data /var/www/cobbler
 	chmod -R +x /var/www/cobbler/web
 	chmod -R +x /var/www/cobbler/svc
 	rm -rf $(statepath)

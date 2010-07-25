@@ -154,7 +154,7 @@ test "x$RPM_BUILD_ROOT" != "x" && rm -rf $RPM_BUILD_ROOT
 
 %files
 
-%defattr(755,apache,apache)
+%defattr(755,www-data,www-data)
 %dir /var/www/cobbler/pub/
 %dir /var/www/cobbler/web/
 /var/www/cobbler/web/index.html
@@ -167,12 +167,12 @@ test "x$RPM_BUILD_ROOT" != "x" && rm -rf $RPM_BUILD_ROOT
 /usr/share/cobbler/installer_templates/*.template
 %defattr(744,root,root)
 /usr/share/cobbler/installer_templates/defaults
-#%defattr(755,apache,apache)               (MOVED to cobbler-web)
+#%defattr(755,www-data,www-data)               (MOVED to cobbler-web)
 #%dir /usr/share/cobbler/webui_templates   (MOVED to cobbler-web)
-#%defattr(444,apache,apache)               (MOVED to cobbler-web)
+#%defattr(444,www-data,www-data)               (MOVED to cobbler-web)
 #/usr/share/cobbler/webui_templates/*.tmpl (MOVED to cobbler-web)
 
-%defattr(755,apache,apache)
+%defattr(755,www-data,www-data)
 %dir /var/log/cobbler
 %dir /var/log/cobbler/tasks
 %dir /var/log/cobbler/kicklog
@@ -183,10 +183,10 @@ test "x$RPM_BUILD_ROOT" != "x" && rm -rf $RPM_BUILD_ROOT
 %dir /var/www/cobbler/ks_mirror/config
 %dir /var/www/cobbler/images
 %dir /var/www/cobbler/links
-%defattr(755,apache,apache)
+%defattr(755,www-data,www-data)
 #%dir /var/www/cobbler/webui (MOVED to cobbler-web)
 %dir /var/www/cobbler/aux
-%defattr(444,apache,apache)
+%defattr(444,www-data,www-data)
 #/var/www/cobbler/webui/*    (MOVED TO cobbler-web)
 /var/www/cobbler/aux/anamon
 /var/www/cobbler/aux/anamon.init
@@ -372,7 +372,7 @@ Url: http://fedorahosted.org/cobbler/
 Web interface for Cobbler that allows visiting http://server/cobbler_web to configure the install server.
 
 %files -n cobbler-web
-%defattr(-,apache,apache)
+%defattr(-,www-data,www-data)
 %dir /usr/share/cobbler/web
 /usr/share/cobbler/web/*
 %dir /usr/share/cobbler/web/cobbler_web

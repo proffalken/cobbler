@@ -565,7 +565,7 @@ class RepoSync:
         a safeguard.
         """
         # all_path = os.path.join(repo_path, "*")
-        cmd1 = "chown -R root:apache %s" % repo_path
+        cmd1 = "chown -R root:www-data %s" % repo_path
         utils.subprocess_call(self.logger, cmd1)
 
         cmd2 = "chmod -R 755 %s" % repo_path
